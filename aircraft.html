@@ -1,0 +1,210 @@
+<html>
+ <head>
+ 
+    <style>
+        .airline_url {
+            margin-top: 8%;
+            margin-bottom: 8%;
+        }
+       
+        form {
+           text-align: center;
+        }
+
+      </style>
+
+</head>
+ 
+<body>
+    <div class="airline_url">
+        <form name="airlineForm" method="POST" id="location"">
+            <h4>Enter URL for Airlines List XML File</h4>
+            <input style="align" type="text" name="airline_name">
+            <br/><br/>
+            <input type="submit" value="Submit Query"  onClick="loadXML(this.form)">
+        </form>
+    </div>
+<!-- *************************************Script***********************-->
+  <script type="text/javascript">
+        var xmlDoc;
+ 
+        function loadXML(myform) {
+
+           var air_url = myform.airline_name.value;
+            if (air_url == "" || air_url == null ) {
+                alert("Url is empty");
+                return false;
+            } 
+
+            if (window.XMLHttpRequest) {
+                xmlhttp = new XMLHttpRequest();
+            }
+ 
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState === 1) return ;
+
+                if (xmlhttp.status == 404) {
+                    alert("File not found!");
+                    return false;
+                }else{
+                    xmlDoc = xmlhttp.responseXML;
+                   if (!xmlDoc) {
+                        alert("Error in xml file");
+                        return false;
+                    }  
+
+                   }; 
+                    var myHeader = xmlDoc.getElementsByTagName("Header");
+                    var myData = xmlDoc.getElementsByTagName("Data");
+ 
+                    myTable = "<html> <style> .img{height:300px;width:300px;}</style><body> <table border=1 style=\"margin:0 auto\">";
+                    myTable += "<tr>";
+                   //Headings- Airline names
+                    var i= 0;
+                    while(i < myData.length)  {
+                        if(myHeader[0].getElementsByTagName("Data")[i].childNodes.length){
+                          myTable += "<th style=\"text-align:center\">" + myHeader[0].getElementsByTagName("Data")[i].childNodes[0].nodeValue + "</th>";
+                          i++;
+                        }
+                       
+                    }
+                myTable += "</tr>";
+                 //entire document is empty!! -ERROR 1
+                                      
+ 
+                //No rows or Airlines - ERROR 2
+                    var myRows = xmlDoc.getElementsByTagName("Row");
+                    if (myRows.length === 0) {
+                        alert("No Airlines Present!")
+                        return false;
+                    }
+ 
+                  
+
+//--------------Displaying data--------------------------
+                 var i=0;
+                    while(i < myRows.length) {
+
+                        //-------------- Airline Name
+                        if(myRows[i].getElementsByTagName("Airline")[0].childNodes.length && myRows[i].getElementsByTagName("Airline")[0].childNodes[0].nodeValue.trim()!=''){
+
+                           myTable += "<tr><td>" + myRows[i].getElementsByTagName("Airline")[0].childNodes[0].nodeValue;
+
+                        }
+
+                        else{
+
+                            myTable+="<tr><td>";
+
+                        }
+
+                        //-------------End Of Airline Name
+
+                        //-------------IATA
+
+
+                        if(myRows[i].getElementsByTagName("IATA")[0].childNodes.length && myRows[i].getElementsByTagName("IATA")[0].childNodes[0].nodeValue.trim()!=''){
+                        myTable+= "</td><td>" + myRows[i].getElementsByTagName("IATA")[0].childNodes[0].nodeValue+ "</td><td>";
+                        }
+                        else{
+                            myTable+="</td><td></td><td>";
+                        }
+
+                        //------------End Of IATA
+
+
+                        //---------------Hubs
+
+                        var all_hubs = myRows[i].getElementsByTagName("Hubs")[0];
+                        
+
+                       if (all_hubs.childElementCount) {
+                            var flag=0;
+                            myTable += "<ul>";
+                            var j=0;
+                            while(j < all_hubs.childElementCount){
+
+                                if (flag == 0) 
+                                {
+                                    myTable +="<b>";
+                                }
+                                if(all_hubs.children[j].childNodes.length && all_hubs.children[j].firstChild.nodeValue.trim()!=''){
+                                myTable += "<li>";
+                                myTable += all_hubs.children[j].firstChild.nodeValue;
+                                myTable += "</li>";
+                            }
+                            else{
+                                myTable+="<li>"+""+"</li>";
+                            }
+                            if (flag == 0){
+                                    myTable +="</b>";
+                                    flag=1;
+                                }
+                                
+                                j++;
+                            
+                            }
+                            myTable+="</ul>";
+                        } 
+                      //  myTable += "</ul>";
+
+
+                        //----------------End Of Hubs
+
+                        if(myRows[i].getElementsByTagName("Notes")[0].childNodes.length && myRows[i].getElementsByTagName("Notes")[0].childNodes[0].nodeValue.trim()!=''){
+                        myTable+= "</td><td>" + myRows[i].getElementsByTagName("Notes")[0].childNodes[0].nodeValue + "</td><td>";
+                        }else{
+                            myTable+="</td><td></td><td>";
+                        }
+
+                   
+                        if(myRows[i].getElementsByTagName("HomePage")[0].childNodes.length &&
+                          myRows[i].getElementsByTagName("HomePage")[0].childNodes[0].nodeValue.trim()!=''){
+                        air_links = myRows[i].getElementsByTagName("HomePage")[0].childNodes[0].nodeValue;
+                        myTable += "<a href=" + air_links + ">" + myRows[i].getElementsByTagName("HomePage")[0].childNodes[0].nodeValue + "</a></td> <td>";
+                        }else{
+                        
+                            myTable+=""+"</td><td>";
+                        }
+ 
+                        if(myRows[i].getElementsByTagName("Plane")[0].childNodes.length &&
+                          myRows[i].getElementsByTagName("Plane")[0].childNodes[0].nodeValue.trim()!=''){
+                        imge = myRows[i].getElementsByTagName("Plane")[0].childNodes[0].nodeValue;
+                        myTable += "<img class=\"img\" src=" + imge + ">";
+                        myTable += "</td></tr>";
+                        }else{
+                            
+                             myTable += ""+"</td></tr>";
+                        }
+
+                        i++;
+                       
+                      }
+                    
+                
+
+                myTable += "</table>";
+                var tab_window = window.open("", "MsgWindow", "width=2000,height=2000,scrollbars=yes");
+                tab_window.document.write(myTable);
+ 
+            
+            }
+ 
+            xmlhttp.open("GET", air_url, false); //open, send, responseXML are
+            try{
+            xmlhttp.send(); //properties of XMLHTTPRequest  
+            return false;    
+            }
+            catch(err){
+                alert('File not found');
+                return false;
+                }
+            return false;
+        
+    }
+      
+    </script>
+ 
+</body>
+ 
+</html>

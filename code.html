@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+<style>
+
+#top {
+    position: relative;
+    left: 0;
+    right: 0;
+    top:0;
+    padding-top: 50px;
+  }
+
+.fixed-size-square {
+    display: table;
+    width: 330px;
+    height: 200px;
+    background: black;
+    left: 40%;
+    position: relative;
+
+}
+
+#text {
+  z-index: 100;
+  font: sans-serif;
+  position: absolute;
+  color: #BBA337;
+  font-size: 12px;
+  left: 600px;
+  top: 335px;
+  letter-spacing: 3px;
+
+}
+#text2 {
+  z-index: 100;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  margin: auto;
+  left: 500px;
+  top: 380px;
+
+}
+#text3 {
+	z-index: 100;
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  margin: auto;
+  left: 600px;
+  top: 400px;
+
+
+}
+
+div.image1{
+  margin: 10px 250px -20px 250px;
+}
+
+body{
+  height:100px;
+width:1500px;
+overflow-y:scroll;
+overflow-x:auto;
+
+}
+.button {
+	z-index: 100;
+	position: absolute;
+    background-color: white;
+    border: 2px solid black; 
+    border-radius : 2px;
+    color: black;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    left: 635px;
+    top: 440px;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    
+
+}
+a.button1 {
+	z-index: 100;
+	position: absolute;
+    background-color: black;
+    border: 1px solid white; 
+    border-radius : 1px;
+    color: white;
+    padding: 12px 45px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    left: 960px;
+    top: 58px;
+    font-size: 12px;
+    margin: 2px 1px;
+    cursor: pointer;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+
+}
+a.button:hover{
+     text-decoration-color: black;
+     color: white;
+     background: black;
+}
+a.button1:hover{
+  text-decoration-color: white;
+  background: white;
+  color:black;
+}
+
+.button2 {
+    z-index: 100;
+	position: absolute;
+    background-color: black;
+	border: 1px solid white; 
+    border-radius : 1px;
+	color: white;
+	font-size: 12px;
+    margin: 2px 1px;
+    cursor: pointer;
+	text-align: center;
+    text-decoration: none;
+	display: inline-block;
+	float :right;
+	left : 80px;
+	padding : 8px 30px;
+}
+a.button2:hover{
+  text-decoration-color: white;
+  background: white;
+  color:black; 
+}
+
+#footer_menu{
+	position: relative;
+    height: 450%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+ 
+}
+.line { 
+    width: 112px;
+height: 47px;
+border-bottom: 1px;
+position: absolute;
+color: white;
+
+} 
+
+#btext1{
+	z-index: 100;
+	float: left;
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  margin: auto;
+  left: 100px;
+  top: 60px;
+  letter-spacing: 3px;
+
+
+}
+#btext1
+{
+  text-decoration: none;
+  color:white;
+}
+
+#btext1:hover,a:hover {
+    text-decoration: underline;
+    color: white;
+    background-color: black;
+
+}
+
+#btext2{
+	z-index: 100;
+	float: left;
+  position: absolute;
+  height: 35px;
+  width: 300px;
+  font-size: 12px;
+  margin: auto;
+  left: 650px;
+  top: 60px;
+
+
+}
+#btext3{
+  z-index: 100;
+  position: absolute;
+  font-size: 12px;
+  margin: auto;
+  left: 650px;
+  top: 30px;
+  color: #BBA337;
+  letter-spacing: 3px;
+  
+
+}
+
+#btext4{
+  z-index: 100;
+  position: absolute;
+  font-size: 16px;
+  margin: auto;
+  left: 80px;
+  top: 160px;
+
+
+}
+#address{
+  z-index: 100;
+  position: absolute;
+  font-size: 15px;
+  margin: auto;
+  left: 80px;
+  top: 195px;
+  font-family: ariel;
+  font-weight: 100;
+
+}
+#email{
+  z-index: 100;
+  position: absolute;
+  font-size: 15px;
+  margin: auto;
+  left: 200px;
+  top: 300px;
+  text-decoration: underline;
+
+}
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    border-style: inset;
+    border-width: 1px;
+} 
+
+.bigger { 
+font-size:95px; 
+font-color:white;
+}
+p.sscript{
+
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 100;
+}
+
+.sscript2{
+
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
+  font-color:white;
+  font-size: 20px;
+  }
+
+  .underline_text {
+      border-bottom: 2px;
+      display: inline;
+      padding-bottom: 1px;
+      margin-top: 100px;
+}
+</style>
+
+</head>
+
+<body>
+	
+<div id="top">
+
+<div class = "fixed-size-square">
+<br/><br/>
+<p class="sscript" style="color:white">LOCATION FAVOURITES <hr> </p>
+
+
+<a href="x.html#number" style="text-decoration: none"><p class="sscript" 
+style="color:white">
+<font size="6.9" face="sans-serif"><u id="underline_text">No.</u></font><span class="bigger"><sub>13</sub></span></p></a>
+
+
+
+</div>
+
+
+
+<div class="image1">
+<a href="x.html#hello">
+  <img style="width:100%;" alt=""  src="sayhello.png"/></a>
+
+  <p id="text">
+   INTERESTED IN WORKING WITH US?
+  </p>
+
+  <font face="San serif"><p id="text2">
+    We'd love to hear from you, so give us a call. Or if you're the shy and retiring
+  </p>
+
+  <p id="text3">
+   type,drop us a line here and we'll get back to you.
+  </p></font>
+
+  <a href="x.html#touch" class="button">GET IN TOUCH</a>
+
+</div>
+
+</div>
+
+<div id="footer_menu">	
+
+<table style="width:100%" cellspacing="0" border = "1">
+<col style="width:40%">
+<col style="width:60%">
+  <tr>
+    <td height="120"><a href="x.html#Article" id ="btext1"> READ OUR LATEST ARTICLES </a></td>
+    <td height="120"><p id="btext3">SIGN UP TO OUR NEWS LETTER</p><input id="btext2" type="text" placeholder="Enter your email address">
+
+ <a href="x.html#sign" class="button1">SIGN UP</a></td>
+  </tr>
+</div>
+
+<div id1="footer_menu">	
+<table style="width:100%" cellspacing="0" border = "0">
+<col style="width:20%">
+<col style="width:20%">
+<col style="width:20%">
+<col style="width:20%">
+<col style="width:20%">
+<tr>
+
+<td height="300"><p id= "btext4" style="color:#BBA337;">H E A D Q U A T E R S</p><br/><br/><p id="address" style="color:white;" font-family="ariel;">E D I N B U R G<br/><br/>
+<font face="ariel;">
+1012 Constitutional Street<br/>
+ Edinburg<br/>
+ Scotland<br/>
+ Eh67AE
+ </font>
+</p><br/>
+<br/>
+<a href="x.html#contact" class="button2">CONTACT US</a></td>
+<!--<input type="button" class="button2" value="CONTACT US"/></td>-->
+
+
+<td height="300"><p id1= "btext4" style="color:#BBA337;">T:<span id1= "email" style="color:white;"> +44(0)555 561 120</span><br/>
+<a href="mailto:hello@productions.com" id1="btext4" style="color:#BBA337;">E: <span id1= "email" style="color:white;"><u>hello@productions.com</a></p><br/></p></td>
+
+<td height="300"><p id2= "btext4" style="color:#BBA337;">O F F I C E S</p>
+<p id2="address" style="color:white;" font-family="sans-serif;" font-size="12px;">N E W Y O R K<br/><br/>
+<font face = "ariel" size= ".2px" weight="100">
+12E,47th Street<br/>
+5th Floor<br/>
+New York,New York 10017<br/>
+USA<br/>
+</font>
+</p><p id1="btext4" style="color:#BBA337;">T:<span id1= "email" style="color:white;"> +1 212-555-88430</span>
+<br/>
+<a href="mailto:newyork@productions.com" id1="btext4" style="color:#BBA337;">E: <br/><span id1= "email" style="color:white;"><u>newyork@productions.com</a></p><br/>
+</td>
+
+
+
+<td height="300"><br/><p id3="address" style="color:white;">L O N D O N<br/><br/>
+128 Dean Street <br/>
+London<br/>
+England<br/>
+W1D 4QF
+</p>
+<p id1="btext4" style="color:#BBA337;">T:<span id1= "email" style="color:white;"> +44(0) 20 5555 1190</span>
+<br/>
+<a href="mailto:london@productions.com" id1="btext4" style="color:#BBA337;">E:<br/> <span id1= "email" style="color:white;"><u>london@productions.com</a></p><br/>
+</td>
+
+
+<td height="300"><p id2="address" style="color:white;">M A N C H E S T E R<br/><br/>
+37 OldField Road<br/>
+Manchster<br/>
+England<br/>
+M5 4LZ
+</p><p id1="btext4" style="color:#BBA337;">T:<span id1= "email" style="color:white;"> +44(0) 161 467 1212</span>
+<br/>
+<a href="mailto:mancherster@productions.com" id1="btext4" style="color:#BBA337;">E: <br/><span id1= "email" style="color:white;"><u>mancherster@productions.com</a></p><br/>
+</td>
+  </tr>
+</div>
+
+</body>
+</html>
